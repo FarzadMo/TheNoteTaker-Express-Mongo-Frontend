@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="./style.css" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div>
+      <h1>Mongo Note Taker</h1>
+      <p>Title:</p>
+      <input type="text" id="title" placeholder="title" />
+      <br />
+      <p>Note:</p>
+      <textarea
+        name="note"
+        id="note"
+        cols="30"
+        rows="10"
+        placeholder="note"
+      ></textarea>
+      <div id="buttons">
+        <button id="make-new" class="btn">Submit</button>
+        <button id="clear-all" class="btn">Delete All</button>
+      </div>
+    </div>
+    <div id="results">
+      <!-- Results will appear here! -->
+    </div>
+    <script src="app.js"></script>
+  </body>
+</html>

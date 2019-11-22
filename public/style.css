@@ -1,0 +1,32 @@
+body {
+    text-align: center;
+    margin: 0 auto;
+    background-color: rgb(243, 134, 101);
+}
+
+p {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 25px;
+    margin-bottom: 0.5%;
+}
+
+#buttons {
+    margin-top: 1.5%;
+    
+}
+
+.btn{
+    border: solid 1px black;
+    font-size: 24px;
+    background-color: aquamarine;
+}
+
+#title{
+    height: 25px;
+}
+
+::-webkit-input-placeholder {
+    color: rgb(6, 80, 49);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 22px;
+}
