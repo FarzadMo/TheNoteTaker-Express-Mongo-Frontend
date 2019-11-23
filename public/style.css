@@ -15,6 +15,10 @@ p {
     
 }
 
+#buttons-2 {
+    margin-top: 1.5%;
+    
+}
 .btn{
     border: solid 1px black;
     font-size: 24px;
@@ -29,4 +33,16 @@ p {
     color: rgb(6, 80, 49);
     font-family: 'Times New Roman', Times, serif;
     font-size: 22px;
+}
+
+input {
+    width: 20%;
+}
+
+textarea {
+    width: 20%;
+}
+
+.delete {
+    color: red;
 }
