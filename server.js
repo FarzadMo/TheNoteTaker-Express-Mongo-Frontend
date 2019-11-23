@@ -55,6 +55,20 @@ app.get("/clearall", function(req, res) {
   });
 });
 
+app.get("/deleteone/:id", function(req, res) {
+  db.notes.remove({ _id: mongojs.ObjectID(req.params.id) }, function(
+    error,
+    removed
+  ) {
+    if (error) {
+      console.log(error);
+      res.send(error);
+    } else {
+      res.send(removed);
+    }
+  });
+});
+
 app.listen(3000, function() {
   console.log("the app is listening on port 3000");
 });

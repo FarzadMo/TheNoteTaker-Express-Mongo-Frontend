@@ -60,3 +60,21 @@ $(document).on("click", "#clear-all", function() {
     }
   });
 });
+
+$(document).on("click", ".delete", function() {
+  var selected = $(this).parent();
+  $.ajax({
+    type: "GET",
+    dataType: "json",
+    url: "/deleteone/" + selected.attr("data-id"),
+
+    success: function(response) {
+      selected.remove();
+
+      $("#note").val("");
+      $("#title").val("");
+
+      $("#buttons").html("<button id='make-new' class='btn'>Submit</button>");
+    }
+  });
+});
