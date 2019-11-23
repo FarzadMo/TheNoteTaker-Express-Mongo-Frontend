@@ -78,3 +78,48 @@ $(document).on("click", ".delete", function() {
     }
   });
 });
+
+$(document).on("click", ".data-title", function() {
+  var selected = $(this);
+
+  $.ajax({
+    type: "GET",
+    dataType: "json",
+    url: "/findone/" + selected.attr("data-id"),
+    success: function(response) {
+      $("#title").val(response.title);
+      $("#note").val(response.note);
+
+      $("#buttons").html(
+        "<button id='updater' class='btn' data-id='" +
+          response._id +
+          "'>Update</button>"
+      );
+    }
+  });
+});
+
+$(document).on("click", "#updater", function() {
+  var selected = $(this);
+  // console.log("this is selected element " + selected);
+  // var myAttr = selected.attr("data-id");
+  // console.log("this is my attribute" + myAttr);
+  $.ajax({
+    type: "POST",
+    dataType: "json",
+    url: "/update/" + selected.attr("data-id"),
+
+    data: {
+      title: $("#title").val(),
+      note: $("#note").val()
+    },
+    success: function(data) {
+      $("#note").val("");
+      $("#title").val("");
+
+      $("#buttons").html("<button id='make-new' class='btn'>Submit</button>");
+
+      getResults();
+    }
+  });
+});

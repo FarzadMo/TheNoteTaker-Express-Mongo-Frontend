@@ -69,6 +69,44 @@ app.get("/deleteone/:id", function(req, res) {
   });
 });
 
+app.get("/findone/:id", function(req, res) {
+  db.notes.findOne({ _id: mongojs.ObjectID(req.params.id) }, function(
+    error,
+    found
+  ) {
+    if (error) {
+      console.log(error);
+      res.send(error);
+    } else {
+      res.send(found);
+    }
+  });
+});
+
+app.post("/update/:id", function(req, res) {
+  db.notes.update(
+    {
+      _id: mongojs.ObjectID(req.params.id)
+    },
+    {
+      $set: {
+        title: req.body.title,
+        note: req.body.note,
+        modified: Date.now()
+      }
+    },
+    function(error, edited) {
+      if (error) {
+        console.log(error);
+        res.send(error);
+      } else {
+        console.log(edited);
+        res.send(edited);
+      }
+    }
+  );
+});
+
 app.listen(3000, function() {
   console.log("the app is listening on port 3000");
 });
